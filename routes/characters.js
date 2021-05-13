@@ -5,9 +5,7 @@ const axios = require("axios");
 const app = express();
 const cors = require("cors");
 
-app.use(cors());
-
-router.get("/characters", async (req, res) => {
+router.get("/characters", cors(), async (req, res) => {
   try {
     // ajouter pagination
     const response = await axios.get(
