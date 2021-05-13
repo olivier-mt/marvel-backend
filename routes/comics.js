@@ -3,13 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const app = express();
-const cors = require("cors");
-app.use(cors());
 
 const { response } = require("express");
 
-router.get("/comics/:characterId", cors(), async (req, res) => {
+router.get("/comics/:characterId", async (req, res) => {
   try {
     const { characterId } = req.params;
     const response = await axios.get(
@@ -30,11 +27,9 @@ router.get("/comics", async (req, res) => {
       `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.MARVEL_API_KEY}`
     );
 
-    const resultTab = response.data.results;
+    const result = response.data;
 
-    console.log(resultTab);
-
-    res.status(200).json(resultTab);
+    res.status(200).json(result);
   } catch (error) {
     console.log(error.message);
     res.status(400).json("an error occured");

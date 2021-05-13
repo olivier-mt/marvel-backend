@@ -6,11 +6,11 @@ const comicsRoutes = require("./routes/comics");
 const formidable = require("express-formidable");
 const { all } = require("./routes/characters");
 app.use(formidable());
-
-app.use(charactersRoutes);
-app.use(comicsRoutes);
 const cors = require("cors");
 app.use(cors());
+app.use(charactersRoutes);
+app.use(comicsRoutes);
+
 /*app.all("*", (req, res) => {
   console.log("This route does not exists");
 });*/
