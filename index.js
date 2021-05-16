@@ -15,6 +15,10 @@ app.use(comicsRoutes);
   console.log("This route does not exists");
 });*/
 
+app.get("/*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
 app.listen(process.env.PORT, (req, res) => {
   console.log("Server is started");
 });
