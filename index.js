@@ -11,12 +11,8 @@ app.use(cors());
 app.use(charactersRoutes);
 app.use(comicsRoutes);
 
-/*app.all("*", (req, res) => {
-  console.log("This route does not exists");
-});*/
-
-app.get("/*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+app.all("*", function (req, res) {
+  res.json({ message: "Page not found" });
 });
 
 app.listen(process.env.PORT, (req, res) => {
