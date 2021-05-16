@@ -15,6 +15,6 @@ app.use(comicsRoutes);
   console.log("This route does not exists");
 });*/
 
-app.listen(3001, (req, res) => {
+app.listen(process.env.PORT, (req, res) => {
   console.log("Server is started");
 });
